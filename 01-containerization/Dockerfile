@@ -3,8 +3,8 @@ FROM ubuntu:16.04
 LABEL maintainer="Nikola Shahpazov"
 
 # path variables
-ARG STARSPACE_PATH=https://github.com/facebookresearch/Starspace.git
-ARG BOOST_PATH=https://github.com/Musicoll/KiwiDependenciesPrebuilt/releases/download/v1.3/boost_1_63_0.zip
+# ARG STARSPACE_PATH=https://github.com/facebookresearch/Starspace.git
+# ARG BOOST_PATH=https://github.com/Musicoll/KiwiDependenciesPrebuilt/releases/download/v1.3/boost_1_63_0.zip
 # ARG TRAIN_DATA_PATH=https://drive.google.com/u/0/uc?id=11z-oSzbmGJp2S4HAnh09nBdkaVvuxYy8&export=download
 
 # working directory
