@@ -3,9 +3,8 @@ FROM ubuntu:16.04
 LABEL maintainer="Nikola Shahpazov"
 
 # path variables
-# ARG STARSPACE_PATH=https://github.com/facebookresearch/Starspace.git
-# ARG BOOST_PATH=https://github.com/Musicoll/KiwiDependenciesPrebuilt/releases/download/v1.3/boost_1_63_0.zip
-# ARG TRAIN_DATA_PATH=https://drive.google.com/u/0/uc?id=11z-oSzbmGJp2S4HAnh09nBdkaVvuxYy8&export=download
+ARG STARSPACE_PATH=https://github.com/facebookresearch/Starspace.git
+ARG BOOST_PATH=https://github.com/Musicoll/KiwiDependenciesPrebuilt/releases/download/v1.3/boost_1_63_0.zip
 
 # working directory
 WORKDIR /starspace
@@ -33,6 +32,5 @@ RUN \
     cd Starspace && \
     make 
 
-# RUN mkdir data && wget -O data/starspace_input_file.txt $TRAIN_DATA_PATH
-
-CMD [ "./Starspace/starspace", "train", "-trainFile", "./data/starspace_input_file.txt", "-model", "./data/starspace_model"]
+# sh -c ./Starspace/starspace train -trainFile ${INPUT_PATH} -model ${OUTPUT_PATH}
+CMD ["sh", "-c", "./Starspace/starspace train -trainFile ${INPUT_PATH} -model ${OUTPUT_PATH}"]

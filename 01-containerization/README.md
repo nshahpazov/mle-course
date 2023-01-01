@@ -5,40 +5,20 @@ encapsulated in a Docker environment to train the model on a particular dataset 
 
 # Instructions to execute the model through a docker environment
 
-1. Build the docker container through the current `Dockerfile`  by running 
+### Prerequisites
+
+Before running the model, you should have an input file in the data directory in the working directory.
+
+1. Build the docker container through the current `Dockerfile`  by running
 
 ```bash
-docker build -t starspace .
+make build
 ```
 
-2. Create the docker volume
+2. Train the model with the following command
 
 ```bash
-docker volume create starspace_data_volume
+make train input=starspace_input_file.txt output_model_name=model
 ```
-
-3. Copy the data directory to the docker data volume
-
-```bash
-docker run -v starspace_data_volume:/starspace/data --name helper busybox true
-docker cp data helper:/starspace/
-docker rm helper
-```
-
-4. Run the docker image
-
-```bash
-docker run -it \
- -e INPUT_PATH=/starspace/data/starspace_input_file.txt \
- -e OUTPUT_PATH=/starspace/data/starspace_model \
- --mount type=volume,source=starspace_data_volume,target=/starspace/data \
- starspace
-```
-
-5. Copy the data to the data volume
-
-```
-CID=$(docker run -d -v starspace_data_volume:/starspace/data busybox true) && \
-docker cp $CID:/starspace/data/starspace_model ./data/ && \
-docker cp $CID:/starspace/data/starspace_model.tsv ./data/
-```
+where `input` should be set to the input file for training in the `data directory` and `output` should be
+set to the name of the output model which will be present in the `data directory` after the run.
