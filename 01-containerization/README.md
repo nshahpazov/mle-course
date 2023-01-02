@@ -2,7 +2,7 @@
 
 ### Description
 
-The following docker setting takes the [https://github.com/facebookresearch/StarSpace](Starspace model)
+The following docker setting takes the [Starspace model](https://github.com/facebookresearch/StarSpace)
 encapsulated in a Docker environment to train the model on a particular dataset given by the user.
 
 
@@ -26,4 +26,4 @@ make train input=starspace_input_file.txt output=model
 where `input` should be set to the input file for training in the `data directory` and `output` should be
 set to the name of the output model which will be present in the `data directory` after the run.
 
-Example file can be found [https://drive.google.com/file/d/11z-oSzbmGJp2S4HAnh09nBdkaVvuxYy8/view?usp=sharing](here)
+Example file can be found [here](https://drive.google.com/file/d/11z-oSzbmGJp2S4HAnh09nBdkaVvuxYy8/view?usp=sharing)
