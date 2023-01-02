@@ -20,7 +20,7 @@ make build
 2. Train the model with the following command
 
 ```bash
-make train input=starspace_input_file.txt output_model_name=model
+make train input=starspace_input_file.txt output=model
 ```
 where `input` should be set to the input file for training in the `data directory` and `output` should be
 set to the name of the output model which will be present in the `data directory` after the run.
